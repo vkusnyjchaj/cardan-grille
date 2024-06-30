@@ -3,3 +3,14 @@ A grille cipher was a technique for encrypting a plaintext by writing it onto a 
 
 ![code](https://upload.wikimedia.org/wikipedia/commons/8/8a/Tangiers1.png)
 ![grille](https://upload.wikimedia.org/wikipedia/commons/b/b9/Tangiers2.png)
+
+# Application features
+- Square grille generation
+- Arbitrary text encoding
+- Export to PDF
+
+# Requirements
+[NodeJS v20.15.0 (LTS) or newer](https://nodejs.org/en/download/package-manager)
+
+# Usage
+// TODO Describe step by step how to run the app
