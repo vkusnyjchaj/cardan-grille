@@ -13,4 +13,4 @@ A grille cipher was a technique for encrypting a plaintext by writing it onto a 
 [NodeJS v20.15.0 (LTS) or newer](https://nodejs.org/en/download/package-manager)
 
 # Usage
-// TODO Describe step by step how to run the app
+// TODO Describe step by step how to run the app, add screenshots
