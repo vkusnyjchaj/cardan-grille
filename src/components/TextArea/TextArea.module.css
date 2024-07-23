@@ -1,0 +1,24 @@
+.textarea {
+  resize: vertical;
+  outline: none;
+  border: 2px solid var(--text);
+  background-color: var(--accent);
+  color: white;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.textarea:not(:disabled):hover {
+  filter: brightness(105%);
+}
+
+.textarea:not(:disabled):focus {
+  filter: brightness(115%);
+  outline: 1px solid var(--text);
+}
+
+
+.textarea:disabled {
+  cursor: not-allowed;
+  filter: brightness(175%);
+}

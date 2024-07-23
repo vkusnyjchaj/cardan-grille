@@ -1,0 +1,6 @@
+.layout {
+  width: fit-content;
+  max-width: 800px;
+  padding: 64px 16px;
+  margin: 0 auto;
+}

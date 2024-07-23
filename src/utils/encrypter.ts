@@ -58,7 +58,7 @@ const getRandomLetters = (message: string, grille: boolean[][]): string => {
   return '';
 }
 
-const encodeMessage = (message: string, grille: boolean[][], trash?: string): string[][][] => {
+const encryptMessage = (message: string, grille: boolean[][], trash?: string): string[][][] => {
   grille.forEach(row => {
     if (row.length !== grille.length) {
       throw new Error('Grille should be a square matrix');
@@ -103,13 +103,13 @@ const encodeMessage = (message: string, grille: boolean[][], trash?: string): st
   return tables;
 }
 
-const encode = (message: string, grille: boolean[][]): string[][][] => {
+const encrypt = (message: string, grille: boolean[][]): string[][][] => {
   const trash = getRandomLetters(message, grille);
-  return encodeMessage(message, grille, trash);
+  return encryptMessage(message, grille, trash);
 }
 
 const testExports = {
- encodeMessage
+  encryptMessage
 }
 
-export { encode, testExports };
+export { encrypt, testExports };

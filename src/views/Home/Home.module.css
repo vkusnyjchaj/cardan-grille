@@ -1,0 +1,36 @@
+.titleContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  max-width: 600px;
+  text-align: center;
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.grilleImage {
+  margin-left: 16px;
+}
+
+.attention {
+  color: var(--text-accent);
+}
+
+.controls {
+  display: flex;
+  margin-top: 32px;
+}
+
+.generateButton {
+  margin-left: 32px;
+}
+
+.importButton {
+  margin-left: 8px;
+}

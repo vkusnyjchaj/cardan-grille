@@ -1,7 +1,7 @@
 import { expect, test } from 'vitest';
-import { testExports } from './encoder';
+import { testExports } from './encrypter';
 
-test('Encoder should correctly encode the message if message length is a multiple of chunk size', () => {
+test('Encrypter should correctly encrypt the message if message length is a multiple of chunk size', () => {
   const message = "Test message is her";
   const grille = [
     [true, false, false, false],
@@ -10,7 +10,7 @@ test('Encoder should correctly encode the message if message length is a multipl
     [false, false, false, false]
   ];
 
-  expect(testExports.encodeMessage(message, grille)).toEqual([
+  expect(testExports.encryptMessage(message, grille)).toEqual([
     [
       ['T','S','H','M'],
       ['A','E','G','E'],
@@ -20,7 +20,7 @@ test('Encoder should correctly encode the message if message length is a multipl
   ]);
 });
 
-test('Encoder should correctly encode the message if message length is not a multiple of chunk size', () => {
+test('Encrypter should correctly encrypt the message if message length is not a multiple of chunk size', () => {
   const message = "Test message находится здесь";
   const grille = [
     [true, false, false, false],
@@ -29,7 +29,7 @@ test('Encoder should correctly encode the message if message length is not a mul
     [false, false, false, false]
   ];
 
-  expect(testExports.encodeMessage(message, grille, '0000000')).toEqual([
+  expect(testExports.encryptMessage(message, grille, '0000000')).toEqual([
     [
       ['T','А','Х','M'],
       ['A','E','G','E'],

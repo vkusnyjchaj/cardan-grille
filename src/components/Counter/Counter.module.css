@@ -1,0 +1,35 @@
+.counter {
+  display: flex;
+  align-items: center;
+}
+
+.value {
+  padding: 0 8px 0 8px;
+  font-size: 16px;
+  user-select: none;
+  color: orangered;
+}
+
+.button {
+  width: 32px;
+  height: 32px;
+  padding: 4px 4px;
+  background-color: darkorange;
+  border: none;
+  color: white;
+  outline: none;
+  transition: all 0.1s;
+}
+
+.button:not(:disabled):hover {
+  filter: brightness(105%);
+}
+
+.button:not(:disabled):active {
+  filter: brightness(115%);
+}
+
+.button:disabled {
+  filter: brightness(50%);
+  cursor: not-allowed;
+}

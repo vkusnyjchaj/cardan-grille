@@ -6,7 +6,7 @@ A grille cipher was a technique for encrypting a plaintext by writing it onto a 
 
 # Application features
 - Square grille generation
-- Arbitrary text encoding
+- Text encryption
 - Export to PDF
 
 # Requirements

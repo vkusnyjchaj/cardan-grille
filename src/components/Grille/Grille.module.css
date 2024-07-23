@@ -1,0 +1,32 @@
+.grille {
+    border-collapse: collapse;
+}
+
+.grille .cell {
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--text);
+    background-color: var(--accent);
+    vertical-align: center;
+}
+
+.grille .cell.print {
+    border: 1px solid black;
+    background-color: white;
+}
+
+
+.grille .cell .hole {
+    width: 32px;
+    height: 32px;
+    box-sizing: border-box;
+    background: var(--text);
+}
+
+.grille .cell .hole.print {
+    width: 4px;
+    height: 4px;
+    margin: 0 auto;
+    border-radius: 50%;
+    background: black;
+}
