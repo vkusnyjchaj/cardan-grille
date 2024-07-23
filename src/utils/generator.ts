@@ -96,8 +96,6 @@ const generateGrille = (size: number, seed: number[]): boolean[][] => {
   // 2. Hole should't be connected with another hole (increases security)
 
   const grille: boolean[][] = new Array(matrix.length).fill(null).map(() => new Array(matrix.length).fill(false));
- 
-  console.log(matrix);
 
   for (let i = 0; i < quarterSize; i++) {
     // Fill grille using matrix and random index
