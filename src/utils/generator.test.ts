@@ -19,4 +19,16 @@ test('Generates correct grille with predefined seed of top left and bottom right
     [false, false, true, true],
     [false, false, true, true],
   ]);
-})
+});
+
+test('Generates correct grille with predefined seed', () => {
+  const size = 4;
+  const seed = [0, 1, 2, 3];
+
+  expect(testExports.generateGrille(size, seed)).toEqual([
+    [true, false, false, false],
+    [false, false, false, true],
+    [false, true, false, true],
+    [false, false, false, false],
+  ]);
+});
