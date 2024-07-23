@@ -4,9 +4,9 @@ import "normalize.css"
 import './main.css'
 import { RouterProvider } from 'react-router-dom'
 import router from './router'
-import generate from './utils/generator'
+import { generate } from './utils/generator'
 
-const grille = generate(8);
+const grille = generate(4);
 console.log(grille)
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

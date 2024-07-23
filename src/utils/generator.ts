@@ -46,13 +46,6 @@ const generateGrille = (size: number, seed: number[]): boolean[][] => {
     throw new Error(`Expected ${quarterSize} length array, but provided ${seed.length}`);
   }
 
-  for (let i = 0; i < seed.length; i++) {
-    if (seed[i] < 0 || seed[i] > 3) {
-      // Each seed item should be from 0 to 3 due matrix has 4 quarters
-      throw new Error(`Expected values from 0 to 3 for each seed item, but ${i} item has value of ${seed[i]}`);
-    }
-  }
-
   // Create a quarter
   const topLeftQuarter: number[][] = [];
 
@@ -104,11 +97,36 @@ const generateGrille = (size: number, seed: number[]): boolean[][] => {
 
   const grille: boolean[][] = new Array(matrix.length).fill(null).map(() => new Array(matrix.length).fill(false));
  
+  console.log(matrix);
 
   for (let i = 0; i < quarterSize; i++) {
     // Fill grille using matrix and random index
-    for (let x = 0; x < matrix.length; x++) {
-      for (let y = 0; y < matrix[x].length; y++) {
+    let offset;
+
+    /*
+    [tl = 0, tr = 1]
+    [bl = 3, br = 2]
+    */
+
+    switch(seeds[i]) {
+      case 0:
+        offset = [matrix.length / 2, matrix.length / 2];
+        break;
+      case 1:
+        offset = [matrix.length, matrix.length / 2];
+        break;
+      case 2:
+        offset = [matrix.length, matrix.length];
+        break;
+      case 3:
+        offset = [matrix.length / 2, matrix.length];
+        break;
+      default:
+        throw new Error(`Expected values from 0 to 3 for each seed item, but ${i} item has value of ${seed[i]}`);
+    }
+
+    for (let x = 0; x < offset[0]; x++) {
+      for (let y = 0; y < offset[1]; y++) {
         if (matrix[x][y] === i) {
           if (seeds[i] === 0) {
             grille[x][y] = true;
@@ -126,7 +144,11 @@ const generateGrille = (size: number, seed: number[]): boolean[][] => {
 }
 
 const generate = (size: number): boolean[][] => {
-  return generateGrille(size, getRandomSeed(Math.pow(size / 2, 2)));
+  return generateGrille(size, [0,0,0,0]);
 }
 
-export default generate;
+const testExports = {
+  generateGrille
+}
+
+export { generate, testExports };
