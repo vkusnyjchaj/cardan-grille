@@ -1,10 +1,4 @@
-const rotateMatrix = (matrix: Array<Array<any>>) => {
-  return matrix[0].map((_, index) => matrix.map(row => row[index]).reverse())
-}
-
-const getRandomNumber = (min: number, max: number) => {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
+import { getRandomNumber, rotateMatrix } from "./common";
 
 const getRandomSeed = (quarterSize: number) => {
   let previousIndex: number | undefined;
