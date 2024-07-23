@@ -7,14 +7,14 @@
   padding: 0 8px 0 8px;
   font-size: 16px;
   user-select: none;
-  color: orangered;
+  color: white;
 }
 
 .button {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   padding: 4px 4px;
-  background-color: darkorange;
+  background-color: #4493f8;
   border: none;
   color: white;
   outline: none;

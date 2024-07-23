@@ -5,11 +5,24 @@ import Warning from "../../components/Warning/Warning";
 import styles from './Home.module.css';
 import { DEFAULT_GRILLE_SIZE } from "../../constants";
 import Button from "../../components/Button/Button";
+import { generate } from "../../utils/generator";
+import Grille from "../../components/Grille/Grille";
 
 export default function Home() {
   const [size, setSize] = useState<number>(DEFAULT_GRILLE_SIZE);
+  const [grille, setGrille] = useState<Array<Array<boolean>> | null>(null);
+  
   const onSizeChange = (size: number) => {
     setSize(size);
+  }
+
+  const onGenerateClick = () => {
+    const grille = generate(size);
+    setGrille(grille);
+  }
+
+  const onImportClick = () => {
+
   }
   
   return (
@@ -28,9 +41,10 @@ export default function Home() {
       <p>First of all you need a <span className={styles.attention}>Cardan grille</span>. You can choice the size. <span className={styles.attention}>Larger size means more reliable encryption, but also a larger peace of paper</span> you need to privately hand over to the recipient. Normally 8x8 size is a good balance. Of course you can just import it from a file.</p>
       <div className={styles.controls}>
         <Counter value={size} step={2} min={4} max={16} onChange={onSizeChange} />
-        <Button className={styles.generateButton}>Generate</Button>
-        <Button className={styles.importButton}>Import</Button>
+        <Button className={styles.generateButton} onClick={onGenerateClick}>Generate</Button>
+        <Button className={styles.importButton} onClick={onImportClick}>Import</Button>
       </div>
+      <Grille className={styles.grille} grille={grille} />
     </Layout>
   );
 }
