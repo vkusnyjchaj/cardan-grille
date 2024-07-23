@@ -108,33 +108,50 @@ const generateGrille = (size: number, seed: number[]): boolean[][] => {
     [bl = 3, br = 2]
     */
 
+    const full = matrix.length;
+    const half = matrix.length / 2;
+
     switch(seeds[i]) {
       case 0:
-        offset = [matrix.length / 2, matrix.length / 2];
+        offset = {
+          y0: 0,
+          x0: 0,
+          y1: half,
+          x1: half,
+        }
         break;
       case 1:
-        offset = [matrix.length, matrix.length / 2];
+        offset = {
+          y0: half,
+          x0: 0,
+          y1: full,
+          x1: half,
+        }
         break;
       case 2:
-        offset = [matrix.length, matrix.length];
+        offset = {
+          y0: half,
+          x0: half,
+          y1: full,
+          x1: full,
+        }
         break;
       case 3:
-        offset = [matrix.length / 2, matrix.length];
+        offset = {
+          x0: half,
+          y0: 0,
+          x1: full,
+          y1: half,
+        }
         break;
       default:
         throw new Error(`Expected values from 0 to 3 for each seed item, but ${i} item has value of ${seed[i]}`);
     }
 
-    for (let x = 0; x < offset[0]; x++) {
-      for (let y = 0; y < offset[1]; y++) {
+    for (let x = offset.x0; x < offset.x1; x++) {
+      for (let y = offset.y0; y < offset.y1; y++) {
         if (matrix[x][y] === i) {
-          if (seeds[i] === 0) {
-            grille[x][y] = true;
-          } else {
-            grille[x][y] = false;
-          }
-
-          seeds[i]--;
+          grille[x][y] = true;
         }
       }
     }
@@ -144,7 +161,9 @@ const generateGrille = (size: number, seed: number[]): boolean[][] => {
 }
 
 const generate = (size: number): boolean[][] => {
-  return generateGrille(size, [0,0,0,0]);
+  const quarteerSize = Math.pow(size / 2, 2);
+  const seed = getRandomSeed(quarteerSize);
+  return generateGrille(size, seed);
 }
 
 const testExports = {
