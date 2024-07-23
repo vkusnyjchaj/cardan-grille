@@ -1,7 +1,7 @@
 import { expect, test } from 'vitest';
 import { testExports } from './encoder';
 
-test('Encoder should correctly encode the message', () => {
+test('Encoder should correctly encode the message if message length is a multiple of chunk size', () => {
   const message = "Test message is her";
   const grille = [
     [true, false, false, false],
@@ -20,7 +20,7 @@ test('Encoder should correctly encode the message', () => {
   ]);
 });
 
-test('Encoder should correctly encode the message if two alphabets are presented', () => {
+test('Encoder should correctly encode the message if message length is not a multiple of chunk size', () => {
   const message = "Test message находится здесь";
   const grille = [
     [true, false, false, false],
