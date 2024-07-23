@@ -5,7 +5,7 @@
 .grille .cell {
     width: 32px;
     height: 32px;
-    border: 1px solid darkorange;
+    border: 1px solid yellowgreen;
     background-color: #161b22;
     vertical-align: center;
 }
@@ -20,7 +20,7 @@
     width: 32px;
     height: 32px;
     box-sizing: border-box;
-    background: darkorange;
+    background: yellowgreen;
 
 }
 
