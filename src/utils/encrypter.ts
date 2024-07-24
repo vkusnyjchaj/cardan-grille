@@ -42,15 +42,23 @@ const chunkString = (str: string, len: number): string[] => {
 };
 
 const getRandomLetters = (message: string, grille: boolean[][]): string => {
-  const normalizedMessage = message.replaceAll(' ','');
+  const normalizedMessage = message.replaceAll(' ','').toUpperCase();
   const alphabetsUsed = findAlphabetIndexes(normalizedMessage, alphabets);
   const chunkSize = Math.pow(grille.length / 2, 2) * 4;
   let trashCharsCount = chunkSize - normalizedMessage.length % chunkSize;
   let result = '';
   // If chunk is not fullfilled then fill it with random characters of the same alphabet(s)
   while (trashCharsCount >= 0) {
+    let randomAlphabetIndex;
     // Find which alphabets are used
-    const randomAlphabetIndex = alphabetsUsed.length > 1 ? getRandomNumber(0, alphabetsUsed.length) : alphabetsUsed[0];
+    if (alphabetsUsed.length > 1) {
+      randomAlphabetIndex = getRandomNumber(0, alphabetsUsed.length)
+    } else if (alphabetsUsed.length === 1) {
+      randomAlphabetIndex = alphabetsUsed[0];
+    } else {
+      randomAlphabetIndex = 0;
+    }
+
     const randomChar = alphabets[randomAlphabetIndex].charAt(Math.floor(Math.random() * alphabets[randomAlphabetIndex].length));
     result += randomChar;
     trashCharsCount--;
