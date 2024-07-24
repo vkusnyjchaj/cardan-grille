@@ -55,11 +55,15 @@
 
 .tableContainer {
   clear: both;
+  overflow: auto;
 }
 
 .table {
   float: left;
   margin-right: 16px;
   margin-bottom: 16px;
+}
 
+.step {
+  color: yellowgreen;
 }

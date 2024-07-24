@@ -54,7 +54,7 @@ export default function Home() {
       <p>The app can be useful if you need to send a private message on a paper and you don't want to allow somebody to read it except of recipient. The encryption algorithm is not reliable as modern algorithms, but it has a valuable advantage - recipient can easily decrypt the message only using a small list of paper without any calculations.</p>
       <Warning>If you need something really secured, please look at modern ecryption algorithms. Cardan grille is just a way to avoid the curiosity of random people.</Warning>
       <h2 className={styles.subtitle}>Get started!</h2>
-      <p>First of all you need to <span className={styles.attention}>generate a Cardan grille</span>. You can choose the size. <span className={styles.attention}>Larger size means more reliable encryption, but also a larger peace of paper</span> you need to privately hand over to the recipient. Normally 8x8 size is a good balance. Of course you can just import it from a file.</p>
+      <p><span className={styles.step}>STEP 1</span> First of all you need to <span className={styles.attention}>generate a Cardan grille</span>. You can choose the size. <span className={styles.attention}>Larger size means more reliable encryption, but also a larger peace of paper</span> you need to privately hand over to the recipient. Normally 8x8 size is a good balance. Of course you can just import it from a file.</p>
       <div className={styles.controls}>
         <Counter value={size} step={2} min={4} max={16} onChange={onSizeChange} />
         <Button className={styles.generateButton} onClick={onGenerateClick}>Generate</Button>
@@ -65,7 +65,7 @@ export default function Home() {
       </div>
       {grille && 
       <div>
-        <p>Now you are ready to <span className={styles.attention}>encode your message</span> using the generated grille. If you are going to use the grille multiple times, then you probably want to <span className={styles.attention}>export</span> it. If not, then just skip this step. Also you can <span className={styles.attention}>print</span> a grille or just draw it on a paper on your own.</p>
+        <p><span className={styles.step}>STEP 2</span> Now you are ready to <span className={styles.attention}>encode your message</span> using the generated grille. If you are going to use the grille multiple times, then you probably want to <span className={styles.attention}>export</span> it. If not, then just skip this step. Also you can <span className={styles.attention}>print</span> a grille or just draw it on a paper on your own.</p>
         <Warning>If you choice the manual drawing option, make sure grille has the same size as ecrypted message tables.</Warning>
         <div className={styles.controls}>
           <Button className={styles.exportButton} onClick={() => {}}>Export</Button>
@@ -80,6 +80,16 @@ export default function Home() {
           }
         </div>
       </div>}
+      {
+        encryptedMessage &&
+        <div>
+          <p><span className={styles.step}>STEP 3</span> Your message is encrypted and you can <span className={styles.attention}>print</span> encrypted data tables or draw it on your own.</p>
+          <Warning>If you choice the manual drawing option, make sure ecrypted message tables has the same size as grille.</Warning>
+          <Button className={styles.printTablesButton} onClick={() => {}}>Print</Button>
+        </div>
+      }
+      <h2 className={styles.subtitle}>How to decrypt the message?</h2>
+      <p>To decrypt the message you need to have a paper grille with holes in required cells. You need to impose the grille to the message table, read the message, then rotate the grille 90 degress and read again while grille is not at initial angle.</p>
     </Layout>
   );
 }
