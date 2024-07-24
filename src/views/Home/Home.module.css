@@ -35,6 +35,31 @@
   margin-left: 8px;
 }
 
+.grilleContainer {
+  display: flex;
+  justify-content: center;
+}
+
 .grille {
   margin-top: 32px;
+  margin-bottom: 16px;
+}
+
+.printGrilleButton {
+  margin-left: 8px;
+}
+
+.textarea {
+  width: 100%;
+}
+
+.tableContainer {
+  clear: both;
+}
+
+.table {
+  float: left;
+  margin-right: 16px;
+  margin-bottom: 16px;
+
 }

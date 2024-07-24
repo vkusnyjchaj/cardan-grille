@@ -1,8 +1,8 @@
 .textarea {
   resize: vertical;
   outline: none;
-  border: 2px solid var(--text);
-  background-color: var(--accent);
+  border: none;
+  background-color: black;
   color: white;
   padding: 8px;
   box-sizing: border-box;

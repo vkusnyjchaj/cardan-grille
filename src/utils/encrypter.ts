@@ -42,20 +42,21 @@ const chunkString = (str: string, len: number): string[] => {
 };
 
 const getRandomLetters = (message: string, grille: boolean[][]): string => {
-  const alphabetsUsed = findAlphabetIndexes(message, alphabets);
+  const normalizedMessage = message.replaceAll(' ','');
+  const alphabetsUsed = findAlphabetIndexes(normalizedMessage, alphabets);
   const chunkSize = Math.pow(grille.length / 2, 2) * 4;
-  let trashCharsCount = chunkSize - message.length % chunkSize;
+  let trashCharsCount = chunkSize - normalizedMessage.length % chunkSize;
   let result = '';
   // If chunk is not fullfilled then fill it with random characters of the same alphabet(s)
-  while (trashCharsCount > 0) {
+  while (trashCharsCount >= 0) {
     // Find which alphabets are used
-    const randomAlphabetIndex = alphabetsUsed.length > 0 ? getRandomNumber(0, alphabetsUsed.length) : 0;
+    const randomAlphabetIndex = alphabetsUsed.length > 1 ? getRandomNumber(0, alphabetsUsed.length) : alphabetsUsed[0];
     const randomChar = alphabets[randomAlphabetIndex].charAt(Math.floor(Math.random() * alphabets[randomAlphabetIndex].length));
     result += randomChar;
     trashCharsCount--;
   }
 
-  return '';
+  return result;
 }
 
 const encryptMessage = (message: string, grille: boolean[][], trash?: string): string[][][] => {
@@ -80,8 +81,6 @@ const encryptMessage = (message: string, grille: boolean[][], trash?: string): s
     const table = new Array(grille.length).fill(null).map(() => new Array(grille.length).fill(null));
     let times = 4;
 
-    debugger;
-
     // Rotate grille 4 times and fill the table
     while (times > 0) {
       for (let x = 0; x < grille.length; x++) {
@@ -105,6 +104,7 @@ const encryptMessage = (message: string, grille: boolean[][], trash?: string): s
 
 const encrypt = (message: string, grille: boolean[][]): string[][][] => {
   const trash = getRandomLetters(message, grille);
+  console.log(trash);
   return encryptMessage(message, grille, trash);
 }
 

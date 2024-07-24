@@ -1,0 +1,20 @@
+.table {
+  border-collapse: collapse;
+}
+
+.cell {
+  width: 32px;
+  height: 32px;
+  border: 1px solid yellowgreen;
+  background-color: #161b22;
+  vertical-align: center;
+}
+
+.value {
+  width: 32px;
+  height: 32px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

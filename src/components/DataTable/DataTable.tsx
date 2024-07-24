@@ -1,22 +1,22 @@
 import classNames from 'classnames';
-import styles from './Grille.module.css';
+import styles from './DataTable.module.css';
 
-type GrilleProps = {
+type DataTableProps = {
   className?: string,
-  grille: boolean[][]
+  table: string[][]
 }
 
-function Grille(props: GrilleProps) {
+function DataTable(props: DataTableProps) {
   return (
-    <table className={classNames(styles.grille, props.className)}>
+    <table className={classNames(styles.table, props.className)}>
       <tbody>
-        {props.grille.map((row, i) => {
+        {props.table.map((row, i) => {
           return (
             <tr className={styles.row} key={i}>
               {row.map((cell, j) => {
                 return (
                   <td className={styles.cell} key={`${i},${j}`}>
-                    { cell ? <div className={styles.hole}></div> : null }
+                    <div className={styles.value}>{cell}</div>
                   </td>
                 )
               })}
@@ -28,4 +28,4 @@ function Grille(props: GrilleProps) {
   )
 } 
 
-export default Grille;
+export default DataTable;

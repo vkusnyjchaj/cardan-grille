@@ -6,6 +6,7 @@
   color: white;
   outline: none;
   transition: all 0.1s;
+  user-select: none;
 }
 
 .button:not(:disabled):hover {
