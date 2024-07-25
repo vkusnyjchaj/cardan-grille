@@ -2,9 +2,9 @@ import classNames from 'classnames';
 import styles from './Grille.module.css';
 
 type GrilleProps = {
-  className?: string,
-  grille: boolean[][]
-}
+  className?: string;
+  grille: boolean[][];
+};
 
 function Grille(props: GrilleProps) {
   return (
@@ -16,16 +16,16 @@ function Grille(props: GrilleProps) {
               {row.map((cell, j) => {
                 return (
                   <td className={styles.cell} key={`${i},${j}`}>
-                    { cell ? <div className={styles.hole}></div> : null }
+                    {cell ? <div className={styles.hole}></div> : null}
                   </td>
-                )
+                );
               })}
             </tr>
-          )
+          );
         })}
       </tbody>
     </table>
-  )
-} 
+  );
+}
 
 export default Grille;

@@ -2,9 +2,9 @@ import classNames from 'classnames';
 import styles from './DataTable.module.css';
 
 type DataTableProps = {
-  className?: string,
-  table: string[][]
-}
+  className?: string;
+  table: string[][];
+};
 
 function DataTable(props: DataTableProps) {
   return (
@@ -18,14 +18,14 @@ function DataTable(props: DataTableProps) {
                   <td className={styles.cell} key={`${i},${j}`}>
                     <div className={styles.value}>{cell}</div>
                   </td>
-                )
+                );
               })}
             </tr>
-          )
+          );
         })}
       </tbody>
     </table>
-  )
-} 
+  );
+}
 
 export default DataTable;

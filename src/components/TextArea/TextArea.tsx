@@ -2,11 +2,11 @@ import classNames from 'classnames';
 import styles from './TextArea.module.css';
 
 interface TextAreaProps {
-  className?: string
-  value?: string,
-  placeholder?: string,
-  rows?: number,
-  onChange?: (text: string) => void
+  className?: string;
+  value?: string;
+  placeholder?: string;
+  rows?: number;
+  onChange?: (text: string) => void;
 }
 
 function TextArea(props: TextAreaProps) {
@@ -16,7 +16,8 @@ function TextArea(props: TextAreaProps) {
       value={props.value}
       placeholder={props.placeholder}
       rows={props.rows}
-      onChange={(e) => props.onChange!(e.currentTarget.value)} />
+      onChange={e => props.onChange!(e.currentTarget.value)}
+    />
   );
 }
 

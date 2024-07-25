@@ -1,4 +1,4 @@
-import { getRandomNumber, rotateMatrix } from "./common";
+import { getRandomNumber, rotateMatrix } from './common';
 
 const getRandomSeed = (quarterSize: number) => {
   let previousIndex: number | undefined;
@@ -18,7 +18,7 @@ const getRandomSeed = (quarterSize: number) => {
   }
 
   return seeds;
-}
+};
 
 const generateGrille = (size: number, seed: number[]): boolean[][] => {
   const MIN_SIZE = 2;
@@ -32,12 +32,14 @@ const generateGrille = (size: number, seed: number[]): boolean[][] => {
 
   if (size % 2 !== 0) {
     // Square grille side must have even size to prevent overlap holes
-    throw new Error("Size argument must be even.")
+    throw new Error('Size argument must be even.');
   }
 
   if (seed.length !== quarterSize) {
     // Seed length must be equal quarter size (number of holes)
-    throw new Error(`Expected ${quarterSize} length array, but provided ${seed.length}`);
+    throw new Error(
+      `Expected ${quarterSize} length array, but provided ${seed.length}`,
+    );
   }
 
   // Create a quarter
@@ -46,7 +48,7 @@ const generateGrille = (size: number, seed: number[]): boolean[][] => {
   for (let i = 0; i < size / 2; i++) {
     topLeftQuarter.push([]);
     for (let j = 0; j < size / 2; j++) {
-      topLeftQuarter[i][j] = i * size / 2 + j;
+      topLeftQuarter[i][j] = (i * size) / 2 + j;
     }
   }
 
@@ -82,14 +84,16 @@ const generateGrille = (size: number, seed: number[]): boolean[][] => {
     }
   }
 
-  // Now the matrix is filled with numbers, 
+  // Now the matrix is filled with numbers,
   // where each next quarter rotated by 90deg
 
   // Create random holes using the following rules:
   // 1. Hole can be made only in 1 of 4 quarter (algorithm requirement)
   // 2. Hole should't be connected with another hole (increases security)
 
-  const grille: boolean[][] = new Array(matrix.length).fill(null).map(() => new Array(matrix.length).fill(false));
+  const grille: boolean[][] = new Array(matrix.length)
+    .fill(null)
+    .map(() => new Array(matrix.length).fill(false));
 
   for (let i = 0; i < quarterSize; i++) {
     // Fill grille using matrix and random index
@@ -103,14 +107,14 @@ const generateGrille = (size: number, seed: number[]): boolean[][] => {
     const full = matrix.length;
     const half = matrix.length / 2;
 
-    switch(seeds[i]) {
+    switch (seeds[i]) {
       case 0:
         offset = {
           y0: 0,
           x0: 0,
           y1: half,
           x1: half,
-        }
+        };
         break;
       case 1:
         offset = {
@@ -118,7 +122,7 @@ const generateGrille = (size: number, seed: number[]): boolean[][] => {
           x0: 0,
           y1: full,
           x1: half,
-        }
+        };
         break;
       case 2:
         offset = {
@@ -126,7 +130,7 @@ const generateGrille = (size: number, seed: number[]): boolean[][] => {
           x0: half,
           y1: full,
           x1: full,
-        }
+        };
         break;
       case 3:
         offset = {
@@ -134,10 +138,12 @@ const generateGrille = (size: number, seed: number[]): boolean[][] => {
           y0: 0,
           x1: full,
           y1: half,
-        }
+        };
         break;
       default:
-        throw new Error(`Expected values from 0 to 3 for each seed item, but ${i} item has value of ${seed[i]}`);
+        throw new Error(
+          `Expected values from 0 to 3 for each seed item, but ${i} item has value of ${seed[i]}`,
+        );
     }
 
     for (let x = offset.x0; x < offset.x1; x++) {
@@ -150,16 +156,16 @@ const generateGrille = (size: number, seed: number[]): boolean[][] => {
   }
 
   return grille;
-}
+};
 
 const generate = (size: number): boolean[][] => {
   const quarteerSize = Math.pow(size / 2, 2);
   const seed = getRandomSeed(quarteerSize);
   return generateGrille(size, seed);
-}
+};
 
 const testExports = {
-  generateGrille
-}
+  generateGrille,
+};
 
 export { generate, testExports };

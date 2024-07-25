@@ -1,7 +1,10 @@
-import { alphabets } from "../constants";
-import { getRandomNumber, rotateMatrix } from "./common";
+import { alphabets } from '../constants';
+import { getRandomNumber, rotateMatrix } from './common';
 
-const findAlphabetIndexes = (message: string, alphabets: string[]): number[] => {
+const findAlphabetIndexes = (
+  message: string,
+  alphabets: string[],
+): number[] => {
   // Normalize the message to a set of unique characters
   const messageChars = new Set(message);
   const indexes: number[] = [];
@@ -26,67 +29,78 @@ const findAlphabetIndexes = (message: string, alphabets: string[]): number[] => 
   });
 
   return indexes;
-}
+};
 
 const chunkString = (str: string, len: number): string[] => {
   const size = Math.ceil(str.length / len);
   const result = Array(size);
   let offset = 0;
-  
+
   for (let i = 0; i < size; i++) {
     result[i] = str.substring(offset, offset + len);
     offset += len;
   }
-  
+
   return result;
 };
 
 const getRandomLetters = (message: string, grille: boolean[][]): string => {
-  const normalizedMessage = message.replaceAll(' ','').toUpperCase();
+  const normalizedMessage = message.replaceAll(' ', '').toUpperCase();
   const alphabetsUsed = findAlphabetIndexes(normalizedMessage, alphabets);
   const chunkSize = Math.pow(grille.length / 2, 2) * 4;
-  let trashCharsCount = chunkSize - normalizedMessage.length % chunkSize;
+  let trashCharsCount = chunkSize - (normalizedMessage.length % chunkSize);
   let result = '';
   // If chunk is not fullfilled then fill it with random characters of the same alphabet(s)
   while (trashCharsCount >= 0) {
     let randomAlphabetIndex;
     // Find which alphabets are used
     if (alphabetsUsed.length > 1) {
-      randomAlphabetIndex = getRandomNumber(0, alphabetsUsed.length)
+      randomAlphabetIndex = getRandomNumber(0, alphabetsUsed.length);
     } else if (alphabetsUsed.length === 1) {
       randomAlphabetIndex = alphabetsUsed[0];
     } else {
       randomAlphabetIndex = 0;
     }
 
-    const randomChar = alphabets[randomAlphabetIndex].charAt(Math.floor(Math.random() * alphabets[randomAlphabetIndex].length));
+    const randomChar = alphabets[randomAlphabetIndex].charAt(
+      Math.floor(Math.random() * alphabets[randomAlphabetIndex].length),
+    );
     result += randomChar;
     trashCharsCount--;
   }
 
   return result;
-}
+};
 
-const encryptMessage = (message: string, grille: boolean[][], trash?: string): string[][][] => {
+const encryptMessage = (
+  message: string,
+  grille: boolean[][],
+  trash?: string,
+): string[][][] => {
   grille.forEach(row => {
     if (row.length !== grille.length) {
       throw new Error('Grille should be a square matrix');
     }
-  })
+  });
 
   // Split message intro chunks where each chunk is an array of grille size
   const chunkSize = Math.pow(grille.length / 2, 2) * 4;
-  const chunks = chunkString(message.replaceAll(' ','').toUpperCase(), chunkSize);
+  const chunks = chunkString(
+    message.replaceAll(' ', '').toUpperCase(),
+    chunkSize,
+  );
   // Add trash to the last chunk to make it size of chunkSize
   if (trash) chunks[chunks.length - 1] += trash;
 
   // Create tables from chunks using grille
-  const tables = []
+  const tables = [];
 
   for (let i = 0; i < chunks.length; i++) {
     const chunk = chunks[i];
     let currentCharIndex = 0;
-    const table = new Array(grille.length).fill(null).map(() => new Array(grille.length).fill(null));
+    const table = new Array(grille.length)
+      .fill(null)
+      .map(() => new Array(grille.length).fill(null));
     let times = 4;
 
     // Rotate grille 4 times and fill the table
@@ -108,16 +122,16 @@ const encryptMessage = (message: string, grille: boolean[][], trash?: string): s
   }
 
   return tables;
-}
+};
 
 const encrypt = (message: string, grille: boolean[][]): string[][][] => {
   const trash = getRandomLetters(message, grille);
   console.log(trash);
   return encryptMessage(message, grille, trash);
-}
+};
 
 const testExports = {
-  encryptMessage
-}
+  encryptMessage,
+};
 
 export { encrypt, testExports };
