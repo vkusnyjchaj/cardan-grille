@@ -2,13 +2,14 @@ import classNames from 'classnames';
 import styles from './Grille.module.css';
 
 type GrilleProps = {
+  id?: string;
   className?: string;
   grille: boolean[][];
 };
 
 function Grille(props: GrilleProps) {
   return (
-    <table className={classNames(styles.grille, props.className)}>
+    <table id={props.id} className={classNames(styles.grille, props.className)}>
       <tbody>
         {props.grille.map((row, i) => {
           return (

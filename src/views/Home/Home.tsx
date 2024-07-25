@@ -3,7 +3,7 @@ import Counter from '../../components/Counter/Counter';
 import Layout from '../../components/Layout/Layout';
 import Warning from '../../components/Warning/Warning';
 import styles from './Home.module.css';
-import { DEFAULT_GRILLE_SIZE } from '../../constants';
+import { DEFAULT_GRILLE_SIZE, GRILLE_FILE_NAME } from '../../constants';
 import Button from '../../components/Button/Button';
 import { generate } from '../../utils/generator';
 import Grille from '../../components/Grille/Grille';
@@ -12,6 +12,7 @@ import { encrypt } from '../../utils/encrypter';
 import DataTable from '../../components/DataTable/DataTable';
 import Section from '../../components/Section/Section';
 import Step from '../../components/Step/Step';
+import { downloadFile, openFile, printElement } from '../../utils/file';
 
 export default function Home() {
   const [size, setSize] = useState<number>(DEFAULT_GRILLE_SIZE);
@@ -22,16 +23,38 @@ export default function Home() {
   );
 
   const onSizeChange = (size: number) => setSize(size);
+
   const onGenerateClick = () => setGrille(generate(size));
-  const onImportClick = () => {
-    /* TODO */
+
+  const onImportClick = async () => {
+    const file = await openFile();
+
+    try {
+      const obj = JSON.parse(file);
+      setGrille(obj);
+    } catch (error) {
+      // TODO Handle error
+    }
   };
+
+  const onExportGrilleClick = () => {
+    downloadFile(JSON.stringify(grille), GRILLE_FILE_NAME, 'application/json');
+  };
+
+  const onPrintGrilleClick = () => {
+    // TODO
+  };
+
   const onMessageChange = (message: string) => setMessage(message);
 
   const onEncryptMessageClick = () => {
     if (grille) {
       setEncryptedMessage(encrypt(message, grille));
     }
+  };
+
+  const onPrintTablesClick = () => {
+    // TODO
   };
 
   return (
@@ -104,7 +127,7 @@ export default function Home() {
           </div>
           {grille && (
             <div className={styles.grilleContainer}>
-              <Grille grille={grille} />
+              <Grille id="grille" grille={grille} />
             </div>
           )}
         </Step>
@@ -124,10 +147,16 @@ export default function Home() {
               same size as ecrypted message tables.
             </Warning>
             <div className={styles.controls}>
-              <Button className={styles.exportButton} onClick={() => {}}>
+              <Button
+                className={styles.exportButton}
+                onClick={onExportGrilleClick}
+              >
                 Export
               </Button>
-              <Button className={styles.printGrilleButton} onClick={() => {}}>
+              <Button
+                className={styles.printGrilleButton}
+                onClick={onPrintGrilleClick}
+              >
                 Print
               </Button>
             </div>
@@ -172,7 +201,10 @@ export default function Home() {
               If you choice the manual drawing option, make sure ecrypted
               message tables has the same size as grille.
             </Warning>
-            <Button className={styles.printTablesButton} onClick={() => {}}>
+            <Button
+              className={styles.printTablesButton}
+              onClick={onPrintTablesClick}
+            >
               Print
             </Button>
           </Step>
