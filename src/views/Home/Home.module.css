@@ -1,30 +1,51 @@
-.titleContainer {
+.header {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
 .title {
-  max-width: 600px;
+  width: 500px;
   text-align: center;
+}
+
+.section {
+  margin-top: 48px;
+}
+
+.section:first-child {
+  margin-top: 64px;
+}
+
+.step {
+  margin-top: 32px;
+}
+
+.step:first-child {
+  margin-top: 16px;
 }
 
 .imageContainer {
   display: flex;
   justify-content: center;
+  margin-top: 32px;
 }
 
-.grilleImage {
+.image {
   margin-left: 16px;
 }
 
-.attention {
-  color: var(--text-accent);
+.image:first-child {
+  margin-left: 0;
+}
+
+.step:first-child {
+  margin-top: 16px;
 }
 
 .controls {
   display: flex;
-  margin-top: 32px;
+  margin-top: 16px;
 }
 
 .generateButton {
@@ -38,11 +59,7 @@
 .grilleContainer {
   display: flex;
   justify-content: center;
-}
-
-.grille {
-  margin-top: 32px;
-  margin-bottom: 16px;
+  margin-top: 16px;
 }
 
 .printGrilleButton {
@@ -51,11 +68,17 @@
 
 .textarea {
   width: 100%;
+  margin-top: 16px;
+}
+
+.encryptButton {
+  margin-top: 16px;
 }
 
 .tableContainer {
   clear: both;
   overflow: auto;
+  margin-top: 16px;
 }
 
 .table {
@@ -64,6 +87,6 @@
   margin-bottom: 16px;
 }
 
-.step {
-  color: yellowgreen;
+.printTablesButton {
+  margin-top: 16px;
 }

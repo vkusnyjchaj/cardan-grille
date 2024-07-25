@@ -1,8 +1,6 @@
 @font-face {
   font-family: 'CascadiaCode';
-  src:
-    local('CascadiaCode'),
-    url('./assets/CascadiaCode.woff2');
+  src: local('CascadiaCode'), url('./assets/CascadiaCode.woff2');
 }
 
 :root {
@@ -10,24 +8,30 @@
   --text-accent: #4493f8;
 }
 
-html, body {
+html,
+body {
   background: var(--background);
   font-family: 'CascadiaCode';
   color: white;
 }
 
+h1,
+h2 {
+  margin: 0;
+}
+
 h1 {
-  margin-top: 0;
   color: orangered;
 }
 
 h2 {
-  margin-top: 32px;
   color: darkorange;
 }
 
 p {
   width: 100%;
+  margin-top: 16px;
+  margin-bottom: 0;
 }
 
 button {
@@ -39,9 +43,14 @@ label {
 }
 
 @media print {
-	ul, ol, table {
-		page-break-inside: avoid;
-	}
+  ul,
+  ol,
+  table {
+    page-break-inside: avoid;
+  }
 }
 
-@page { size: auto;  margin: 0mm; }
+@page {
+  size: auto;
+  margin: 0mm;
+}
