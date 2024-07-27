@@ -12,7 +12,7 @@ import { encrypt } from '../../utils/encrypter';
 import DataTable from '../../components/DataTable/DataTable';
 import Section from '../../components/Section/Section';
 import Step from '../../components/Step/Step';
-import { downloadFile, openFile, printElement } from '../../utils/file';
+import { downloadFile, openFile } from '../../utils/file';
 
 export default function Home() {
   const [size, setSize] = useState<number>(DEFAULT_GRILLE_SIZE);
