@@ -4,11 +4,16 @@ import 'normalize.css';
 import './main.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './views/Home/Home';
+import Print from './views/Print/Print';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Home />,
+  },
+  {
+    path: '/print',
+    element: <Print />,
   },
 ]);
 

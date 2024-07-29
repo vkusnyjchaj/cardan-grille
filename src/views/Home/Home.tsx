@@ -42,7 +42,10 @@ export default function Home() {
   };
 
   const onPrintGrilleClick = () => {
-    // TODO
+    window.open(
+      `/print?${grille ? 'grille=' + JSON.stringify(grille) : ''}`,
+      '_blank',
+    );
   };
 
   const onMessageChange = (message: string) => setMessage(message);
@@ -54,7 +57,10 @@ export default function Home() {
   };
 
   const onPrintTablesClick = () => {
-    // TODO
+    window.open(
+      `/print?${encryptedMessage ? 'data=' + JSON.stringify(encryptedMessage) : ''}`,
+      '_blank',
+    );
   };
 
   return (

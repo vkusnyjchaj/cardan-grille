@@ -1,19 +1,31 @@
 .grille {
-    border-collapse: collapse;
+  border-collapse: collapse;
 }
 
 .cell {
-    width: 32px;
-    height: 32px;
-    border: 1px solid yellowgreen;
-    background-color: #161b22;
-    vertical-align: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid yellowgreen;
+  background-color: #161b22;
+  vertical-align: center;
 }
 
 .hole {
-    width: 32px;
-    height: 32px;
-    box-sizing: border-box;
-    background: yellowgreen;
+  width: 32px;
+  height: 32px;
+  box-sizing: border-box;
+  background: yellowgreen;
+}
 
+.print .cell {
+  border: 1px solid black;
+  background: white;
+}
+
+.print .hole {
+  width: 4px;
+  height: 4px;
+  margin: 0 auto;
+  border-radius: 50%;
+  border: 2px solid black;
 }
