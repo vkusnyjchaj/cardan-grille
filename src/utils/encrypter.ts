@@ -126,7 +126,6 @@ const encryptMessage = (
 
 const encrypt = (message: string, grille: boolean[][]): string[][][] => {
   const trash = getRandomLetters(message, grille);
-  console.log(trash);
   return encryptMessage(message, grille, trash);
 };
 
