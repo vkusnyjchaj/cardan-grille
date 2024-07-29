@@ -23,6 +23,9 @@ export default function Print() {
 
   return (
     <div className={styles.print}>
+      <h2 className={styles.header}>
+        Use Ctrl+P to print the page or export to PDF
+      </h2>
       <div
         className={styles.controls}
         style={{ display: grille ? 'block' : 'none' }}

@@ -2,7 +2,12 @@
   margin: 32px 16px;
 }
 
+.header {
+  margin-left: 16px;
+}
+
 .controls {
+  margin-top: 32px;
   display: flex;
   gap: 16px;
   margin-left: 16px;
@@ -19,4 +24,14 @@
   float: left;
   margin-left: 16px;
   margin-top: 16px;
+}
+
+@media print {
+  .header {
+    display: none;
+  }
+
+  .controls * {
+    display: none;
+  }
 }
