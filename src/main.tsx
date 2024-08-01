@@ -9,28 +9,23 @@ import Error from './views/Error/Error';
 import NotFound from './views/NotFound/NotFound';
 import { SnackbarProvider } from 'notistack';
 
-const router = createBrowserRouter(
-  [
-    {
-      path: '*',
-      element: <NotFound />,
-      errorElement: <Error />,
-    },
-    {
-      path: '/',
-      element: <Home />,
-      errorElement: <Error />,
-    },
-    {
-      path: '/print',
-      element: <Print />,
-      errorElement: <Error />,
-    },
-  ],
+const router = createBrowserRouter([
   {
-    basename: '/cardan-grille',
+    path: '*',
+    element: <NotFound />,
+    errorElement: <Error />,
   },
-);
+  {
+    path: '/',
+    element: <Home />,
+    errorElement: <Error />,
+  },
+  {
+    path: '/print',
+    element: <Print />,
+    errorElement: <Error />,
+  },
+]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
