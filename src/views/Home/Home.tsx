@@ -94,27 +94,23 @@ export default function Home() {
       </Section>
       <Section className={styles.section} title="How it can be useful for me?">
         <p>
-          The app can be useful if you need to send a private message on a paper
-          and you don't want to allow somebody to read it except of recipient.
-          The encryption algorithm is not reliable as modern algorithms, but it
-          has a valuable advantage - recipient can easily decrypt the message
-          only using a small list of paper without any calculations.
+          The app is useful if you need to send a private message on paper and
+          want to ensure that only the intended recipient can read it. Although
+          the encryption algorithm is not as reliable as modern algorithms, it
+          has a valuable advantage: the recipient can easily decrypt the message
+          using only a small sheet of paper, without any calculations.
         </p>
         <Warning>
-          If you need something really secured, please look at modern ecryption
-          algorithms. Cardan grille is just a way to avoid the curiosity of
-          random people.
+          If you need something highly secure, please consider using modern
+          encryption algorithms. The Cardan grille is simply a method to avoid
+          the curiosity of random people.
         </Warning>
       </Section>
       <Section className={styles.section} title="Get started!">
         <Step
           className={styles.step}
           step={1}
-          message="First of all you need togenerate a Cardan grille. You can choose the
-        size. Larger size means more reliable encryption, but also a larger
-        peace of paper you need to privately hand over to the recipient.
-        Normally 8x8 size is a good balance. Of course you can just import it
-        from a file."
+          message="First, you need to generate a Cardan grille. You can choose the size: a larger size means more reliable encryption, but it also requires a larger piece of paper to hand over privately to the recipient. Normally, an 8x8 size is a good balance. Alternatively, you can import it from a file."
         >
           <div className={styles.controls}>
             <Counter
@@ -142,15 +138,11 @@ export default function Home() {
           <Step
             className={styles.step}
             step={2}
-            message="Now you are ready to encrypt your message using the generated
-              grille. If you are going to use the grille multiple times, then
-              you probably want toexport it. If not, then just skip this step.
-              Also you can print a grille or just draw it on a paper on your
-              own."
+            message="Now you are ready to encrypt your message using the generated grille. If you plan to use the grille multiple times, you may want to export it. Otherwise, you can skip this step. You can also print the grille or draw it on paper yourself."
           >
             <Warning>
-              If you choice the manual drawing option, make sure grille has the
-              same size as ecrypted message tables.
+              If you choose the manual drawing option, make sure the grille is
+              the same size as the encrypted message tables.
             </Warning>
             <div className={styles.controls}>
               <Button
@@ -172,7 +164,9 @@ export default function Home() {
           <Step
             className={styles.step}
             step={3}
-            message="You can enter the message in the textarea below. By default latin and cyrillic alphabets are supported, but you can add a new one by putting it to the constants file."
+            message="You can enter the message in the textarea below. By default, Latin and Cyrillic alphabets are supported, but you can add a new one by updating the constants file.
+
+"
           >
             <TextArea
               className={styles.textarea}
@@ -199,13 +193,11 @@ export default function Home() {
           <Step
             className={styles.step}
             step={4}
-            message="Your message is
-              encrypted and you can print encrypted data
-              tables or draw it on your own."
+            message="Your message is encrypted, and you can print the encrypted data tables or draw them yourself."
           >
             <Warning>
-              If you choice the manual drawing option, make sure ecrypted
-              message tables has the same size as grille.
+              If you choose the manual drawing option, make sure the encrypted
+              message tables are the same size as the grille.
             </Warning>
             <Button
               className={styles.printTablesButton}
@@ -218,10 +210,10 @@ export default function Home() {
       </Section>
       <Section className={styles.section} title="How to decrypt the message?">
         <p>
-          To decrypt the message you need to have a paper grille with holes in
-          required cells. You need to impose the grille to the message table,
-          read the message, then rotate the grille 90 degress and read again
-          while grille is not at initial angle.
+          To decrypt the message, you need a paper grille with holes in the
+          required cells. Place the grille over the message table, read the
+          message, then rotate the grille 90 degrees and read again until the
+          grille returns to its initial angle.
         </p>
       </Section>
     </Layout>
