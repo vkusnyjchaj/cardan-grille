@@ -1,6 +1,7 @@
 {
   "name": "cardan-grille",
   "private": true,
+  "homepage": "https://tastyteadev.github.io/cardan-grille",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
