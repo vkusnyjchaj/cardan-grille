@@ -13,6 +13,7 @@ import DataTable from '../../components/DataTable/DataTable';
 import Section from '../../components/Section/Section';
 import Step from '../../components/Step/Step';
 import { downloadFile, openFile } from '../../utils/file';
+import { enqueueSnackbar } from 'notistack';
 
 export default function Home() {
   const [size, setSize] = useState<number>(DEFAULT_GRILLE_SIZE);
@@ -32,13 +33,17 @@ export default function Home() {
     try {
       const obj = JSON.parse(file);
       setGrille(obj);
-    } catch (error) {
-      // TODO Handle error
+      enqueueSnackbar('Successfully imported.', { variant: 'success' });
+    } catch {
+      enqueueSnackbar('Import failed. Check the file is not corrupted.', {
+        variant: 'error',
+      });
     }
   };
 
   const onExportGrilleClick = () => {
     downloadFile(JSON.stringify(grille), GRILLE_FILE_NAME, 'application/json');
+    enqueueSnackbar('Successfully exported.', { variant: 'success' });
   };
 
   const onPrintGrilleClick = () => {
