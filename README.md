@@ -41,11 +41,17 @@ A grille cipher was a technique for encrypting a plaintext by writing it onto a 
 1. Scroll to the "Get Started" section. Read the description of each step to get more information.
 2. Choose the size of the grille (4-16).
 3. Click the `Generate` button until you get a satisfying result.
+
+![grille generation](https://github.com/tastyteadev/cardan-grille/blob/main/screenshots/grille.png)
+
 4. Click the `Export` button to back up the generated grille.
 5. Click `Print` to open the print page in a new tab.
 6. On the print page, choose how many copies of the grille you need (normally, you need two—one for you and one for the receiver) and print it.
 7. Return to the app tab.
 8. Paste or type your message in the textarea (step 3). By default, the app supports Latin, Cyrillic, or mixed Latin/Cyrillic alphabets.
+
+![message encryption](https://github.com/tastyteadev/cardan-grille/blob/main/screenshots/encryption.png)
+
 9. Click the `Encrypt` button to encrypt the message. The app will create encrypted data tables for you.
 10. Click `Print` to open the print page in a new tab.
 11. On the print page, follow the instructions to print data tables.
