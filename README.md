@@ -8,14 +8,48 @@ A grille cipher was a technique for encrypting a plaintext by writing it onto a 
 # Application features
 
 - Square grille generation
-- Text encryption with a trash
-- Latin and cyrillic alphabets support out of the box (can be easily extended by editing src/constants.ts)
+- Text encryption
+- Latin and cyrillic alphabets support out of the box (extendable)
 - Printing/Export to PDF
 
 # Requirements
 
 [NodeJS v20.15.0 (LTS) or newer](https://nodejs.org/en/download/package-manager)
+[Local web server](https://www.npmjs.com/package/local-web-server)
+
+# Use Cases
+
+1. Sender ---> Some persons ---> Receiver | Some unwanted person(s) can intercept your private message.
+2. Sender ---> Receiver (Some persons) | Some unwanted person(s) have access to the receiver's messages.
+3. Sender ---> Transmitter ---> Receiver | You need to transmit your private message through an unreliable person.
+
+**IMPORTANT**: You need to be able to transmit the grille using a secure channel or directly.
+
+# Running
+
+1. Open the command line/terminal
+2. Navigate to the project directory (cardan-grille)
+3. Run `npm i` to install dependencies
+4. Run `npm run build` to build the project
+5. Navigate to `dist/` folder
+6. Run `ws --spa index.html` (you will get an address, normally http://127.0.0.1:8000)
+7. Open the address in the browser
+8. If you have done all correctly, then you should see the app
 
 # Usage
 
-// TODO Describe step by step how to run the app, add screenshots
+1. Scroll to the "Get Started" section. Read the description of each step to get more information.
+2. Choose the size of the grille (4-16).
+3. Click the `Generate` button until you get a satisfying result.
+4. Click the `Export` button to back up the generated grille.
+5. Click `Print` to open the print page in a new tab.
+6. On the print page, choose how many copies of the grille you need (normally, you need two—one for you and one for the receiver) and print it.
+7. Return to the app tab.
+8. Paste or type your message in the textarea (step 3). By default, the app supports Latin, Cyrillic, or mixed Latin/Cyrillic alphabets.
+9. Click the `Encrypt` button to encrypt the message. The app will create encrypted data tables for you.
+10. Click `Print` to open the print page in a new tab.
+11. On the print page, follow the instructions to print data tables.
+12. Cut the grille and optionally the data tables to get small papers.
+13. Use a stationery knife to cut holes in grille cells marked with a dot in the center of each cell. Do this for all grilles you have. Optionally, you can cover the paper with transparent tape to make the grid more rigid.
+14. Securely transfer one grille instance to the target person. The target person should keep the grille safe.
+15. Now you can transfer encrypted data tables securely. If you need to encrypt one more message, you can use the `Import` button to import the grille and follow this guide from step.
