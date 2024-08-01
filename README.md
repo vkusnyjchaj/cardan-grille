@@ -46,7 +46,7 @@ A grille cipher was a technique for encrypting a plaintext by writing it onto a 
 
 4. Click the `Export` button to back up the generated grille.
 5. Click `Print` to open the print page in a new tab.
-6. On the print page, choose how many copies of the grille you need (normally, you need two—one for you and one for the receiver) and print it.
+6. On the print page, choose how many copies of the grille you need (normally, you need two — one for you and one for the receiver) and print it.
 
 ![grille print](https://github.com/tastyteadev/cardan-grille/blob/main/screenshots/print.png)
 
@@ -61,4 +61,8 @@ A grille cipher was a technique for encrypting a plaintext by writing it onto a 
 12. Cut the grille and optionally the data tables to get small papers.
 13. Use a stationery knife to cut holes in grille cells marked with a dot in the center of each cell. Do this for all grilles you have. Optionally, you can cover the paper with transparent tape to make the grid more rigid.
 14. Securely transfer one grille instance to the target person. The target person should keep the grille safe.
-15. Now you can transfer encrypted data tables securely. If you need to encrypt one more message, you can use the `Import` button to import the grille and follow this guide from step.
+15. Now you can transfer encrypted data tables securely. If you need to encrypt one more message, you can use the `Import` button to import the grille and follow this guide from step 5.
+
+# Decryption
+
+Place the grid with holes over the encrypted table with text. Read the text visible through the holes as usual, then turn the grid clockwise. Repeat until the grid returns to its original position, then repeat with the next table.
