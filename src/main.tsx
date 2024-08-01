@@ -5,15 +5,24 @@ import './main.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './views/Home/Home';
 import Print from './views/Print/Print';
+import Error from './views/Error/Error';
+import NotFound from './views/NotFound/NotFound';
 
 const router = createBrowserRouter([
   {
+    path: '*',
+    element: <NotFound />,
+    errorElement: <Error />,
+  },
+  {
     path: '/',
     element: <Home />,
+    errorElement: <Error />,
   },
   {
     path: '/print',
     element: <Print />,
+    errorElement: <Error />,
   },
 ]);
 
