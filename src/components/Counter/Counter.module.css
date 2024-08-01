@@ -15,7 +15,7 @@
   width: 36px;
   height: 36px;
   padding: 4px 4px;
-  background-color: #4493f8;
+  background-color: var(--background-accent);
   border: none;
   color: white;
   outline: none;

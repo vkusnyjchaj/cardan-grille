@@ -1,13 +1,13 @@
 import classNames from 'classnames';
 import styles from './TextArea.module.css';
 
-interface TextAreaProps {
+type TextAreaProps = {
   className?: string;
   value?: string;
   placeholder?: string;
   rows?: number;
   onChange?: (text: string) => void;
-}
+};
 
 function TextArea(props: TextAreaProps) {
   return (
